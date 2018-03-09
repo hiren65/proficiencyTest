@@ -14,6 +14,7 @@
 		04DBCBBF20510C4700639639 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DBCBBE20510C4700639639 /* Assets.xcassets */; };
 		04DBCBC220510C4700639639 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DBCBC020510C4700639639 /* LaunchScreen.storyboard */; };
 		04DBCBC520510C4700639639 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DBCBC420510C4700639639 /* main.m */; };
+		04DBCBD02052B9A200639639 /* facts.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DBCBCF2052B9A200639639 /* facts.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		04DBCBC120510C4700639639 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04DBCBC320510C4700639639 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04DBCBC420510C4700639639 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04DBCBCF2052B9A200639639 /* facts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = facts.json; path = ../../../temp/facts.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				04DBCBB620510C4700639639 /* ViewController.m */,
 				04DBCBB820510C4700639639 /* Main.storyboard */,
 				04DBCBBE20510C4700639639 /* Assets.xcassets */,
+				04DBCBCF2052B9A200639639 /* facts.json */,
 				04DBCBC020510C4700639639 /* LaunchScreen.storyboard */,
 				04DBCBC320510C4700639639 /* Info.plist */,
 				04DBCBC420510C4700639639 /* main.m */,
@@ -135,6 +138,7 @@
 				04DBCBC220510C4700639639 /* LaunchScreen.storyboard in Resources */,
 				04DBCBBF20510C4700639639 /* Assets.xcassets in Resources */,
 				04DBCBBA20510C4700639639 /* Main.storyboard in Resources */,
+				04DBCBD02052B9A200639639 /* facts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,12 +286,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TYACJ2NB6L;
 				INFOPLIST_FILE = ProficiencyTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.hirenkumar.ProficiencyTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -296,12 +302,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TYACJ2NB6L;
 				INFOPLIST_FILE = ProficiencyTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.hirenkumar.ProficiencyTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
