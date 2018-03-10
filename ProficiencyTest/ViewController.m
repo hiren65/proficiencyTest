@@ -118,7 +118,7 @@
     self.jasonStringLbl.text = myString;
     myArr = [[NSArray alloc]init];
     myArr = dataDict[@"rows"];
-    NSLog(@"myArrrrrrrr  %lu",(unsigned long)myArr.count);
+    NSLog(@"myArrrrrrrryuyy  %lu",(unsigned long)myArr.count);
 }
 
 
