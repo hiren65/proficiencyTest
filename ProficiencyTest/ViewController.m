@@ -16,7 +16,7 @@
 
 @implementation ViewController
 {
-    NSArray *myArr;
+    NSArray *myArr;UIView *navigationalView;
 }
 #define scWi  [[UIScreen mainScreen]bounds].size.width
 #define scHi  [[UIScreen mainScreen]bounds].size.height
@@ -39,6 +39,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark ::-------------------All Device Function-------------------------
 -(void)allDevice {
     self.mainView = [[UIView alloc]initWithFrame:CGRectMake(0, 30, scWi, scHi-30)];
     [self.mainView setBackgroundColor:[UIColor colorWithRed:0.35 green:0.64 blue:0.76 alpha:0.57]];
@@ -50,7 +51,45 @@
     [self.mainView addSubview:self.jasonStringLbl];
     [self.jasonStringLbl setScrollEnabled:YES];
     [self.jasonStringLbl.layer setBorderWidth:1.0];
+    
+    int btnWidth = scWi - 15 - 15;
+    btnDisplay = [[UIButton alloc]initWithFrame:CGRectMake(15, self.jasonStringLbl.frame.origin.y+self.jasonStringLbl.frame.size.height+10, btnWidth, 35)];
+    [btnDisplay setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btnDisplay setTitle:@"Display" forState:UIControlStateNormal];
+    [btnDisplay setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btnDisplay setBackgroundColor:[UIColor colorWithRed:0.48 green:0.72 blue:0.72 alpha:0.36]];
+    [btnDisplay addTarget:self action:@selector(btnWidth:) forControlEvents:UIControlEventTouchUpInside];
+    [self.mainView addSubview:btnDisplay];
+    [btnDisplay.layer setBorderWidth:1.0];
+    [btnDisplay.layer setBorderColor:[UIColor whiteColor].CGColor];
+    [btnDisplay.layer setCornerRadius:8.0];
+    
 }
+-(void)btnWidth:(id)sender{
+    NSLog(@"ok");
+    navigationalView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, scWi, scHi)];
+    [navigationalView setBackgroundColor:[UIColor grayColor]];
+    [self.mainView addSubview:navigationalView];
+    
+    int btnWidth = scWi - 15 - 15;
+    UIButton *btnBack = [[UIButton alloc]initWithFrame:CGRectMake(15, scHi-35-15-15-15, btnWidth, 35)];
+    [btnBack setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btnBack setTitle:@"Exit" forState:UIControlStateNormal];
+    [btnBack setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+    [btnBack setBackgroundColor:[UIColor colorWithRed:0.48 green:0.72 blue:0.72 alpha:0.36]];
+    [btnBack addTarget:self action:@selector(btnBack:) forControlEvents:UIControlEventTouchUpInside];
+    [navigationalView addSubview:btnBack];
+    [btnBack.layer setBorderWidth:1.0];
+    [btnBack.layer setBorderColor:[UIColor whiteColor].CGColor];
+    [btnBack.layer setCornerRadius:8.0];
+    
+    
+    
+}
+-(void)btnBack:(id)sender{
+    [navigationalView removeFromSuperview];
+}
+
 -(void)main {
     /*
     NSURL *internetPath = [NSURL URLWithString:@"https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"];
@@ -82,6 +121,7 @@
     
     
 }
+#pragma mark ---------:: main function for creation of array from json parsing ::------------------------
 -(void)main1{
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"facts" ofType:@"json"];
     // Retrieve local JSON file called example.json
