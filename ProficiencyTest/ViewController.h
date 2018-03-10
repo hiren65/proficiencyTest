@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TableViewController.h"
 @interface ViewController : UIViewController
 {
     UIButton *btnDisplay;
+    UITableViewController *myTableViewController;
 }
 
 

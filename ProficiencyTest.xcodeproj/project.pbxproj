@@ -15,6 +15,7 @@
 		04DBCBC220510C4700639639 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04DBCBC020510C4700639639 /* LaunchScreen.storyboard */; };
 		04DBCBC520510C4700639639 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DBCBC420510C4700639639 /* main.m */; };
 		04DBCBD02052B9A200639639 /* facts.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DBCBCF2052B9A200639639 /* facts.json */; };
+		04FE495B2053AD1C006B5DC3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FE495A2053AD1C006B5DC3 /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		04DBCBC320510C4700639639 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04DBCBC420510C4700639639 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04DBCBCF2052B9A200639639 /* facts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = facts.json; path = ../../../temp/facts.json; sourceTree = "<group>"; };
+		04FE49592053AD1C006B5DC3 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		04FE495A2053AD1C006B5DC3 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,7 @@
 				04DBCBB520510C4700639639 /* ViewController.h */,
 				04DBCBB620510C4700639639 /* ViewController.m */,
 				04DBCBB820510C4700639639 /* Main.storyboard */,
+				04FE49582053ACA5006B5DC3 /* Supporting */,
 				04DBCBBE20510C4700639639 /* Assets.xcassets */,
 				04DBCBCF2052B9A200639639 /* facts.json */,
 				04DBCBC020510C4700639639 /* LaunchScreen.storyboard */,
@@ -75,6 +79,15 @@
 				04DBCBBB20510C4700639639 /* ProficiencyTest.xcdatamodeld */,
 			);
 			path = ProficiencyTest;
+			sourceTree = "<group>";
+		};
+		04FE49582053ACA5006B5DC3 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				04FE49592053AD1C006B5DC3 /* TableViewController.h */,
+				04FE495A2053AD1C006B5DC3 /* TableViewController.m */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +165,7 @@
 				04DBCBBD20510C4700639639 /* ProficiencyTest.xcdatamodeld in Sources */,
 				04DBCBB720510C4700639639 /* ViewController.m in Sources */,
 				04DBCBC520510C4700639639 /* main.m in Sources */,
+				04FE495B2053AD1C006B5DC3 /* TableViewController.m in Sources */,
 				04DBCBB420510C4700639639 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

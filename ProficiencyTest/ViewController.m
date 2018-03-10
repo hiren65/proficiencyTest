@@ -17,6 +17,7 @@
 @implementation ViewController
 {
     NSArray *myArr;UIView *navigationalView;
+    UILabel *lblTitleNavigational;
 }
 #define scWi  [[UIScreen mainScreen]bounds].size.width
 #define scHi  [[UIScreen mainScreen]bounds].size.height
@@ -83,8 +84,23 @@
     [btnBack.layer setBorderColor:[UIColor whiteColor].CGColor];
     [btnBack.layer setCornerRadius:8.0];
     
+    int lblWidth = 200;
+    int margin = (scWi - lblWidth)/2;
+    lblTitleNavigational = [[UILabel alloc]initWithFrame:CGRectMake(margin, 50, lblWidth, 30)];
+    [lblTitleNavigational setTextColor:[UIColor blueColor]];
+    [lblTitleNavigational setBackgroundColor:[UIColor colorWithRed:0.46 green:0.73 blue:0.73 alpha:0.45]];
+    [lblTitleNavigational setTextAlignment:NSTextAlignmentCenter];
+    lblTitleNavigational.text = myArr[0][@"title"];
+    [navigationalView addSubview:lblTitleNavigational];
+    ///////////////////////////////////////////////
+    TableViewController  *tblViewController = [[TableViewController alloc]initWithNibName:nil bundle:nil];
     
+    tblViewController.myArrFree = myArr;
+    //tblViewController.tiv = 100;
     
+    [tblViewController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    
+    [self presentViewController:tblViewController animated:YES completion:NULL];
 }
 -(void)btnBack:(id)sender{
     [navigationalView removeFromSuperview];
@@ -160,6 +176,7 @@
     myArr = dataDict[@"rows"];
     NSLog(@"myArrrrrrrryuyy  %lu",(unsigned long)myArr.count);
 }
+
 
 
 @end
