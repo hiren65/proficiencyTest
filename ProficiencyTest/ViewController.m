@@ -15,6 +15,9 @@
 @end
 
 @implementation ViewController
+{
+    NSArray *myArr;
+}
 #define scWi  [[UIScreen mainScreen]bounds].size.width
 #define scHi  [[UIScreen mainScreen]bounds].size.height
 
@@ -113,8 +116,9 @@
     NSLog(@"Dict......  %@",dataDict[@"rows"][1][@"imageHref"]);
     
     self.jasonStringLbl.text = myString;
-    
-    
+    myArr = [[NSArray alloc]init];
+    myArr = dataDict[@"rows"];
+    NSLog(@"myArrrrrrrr  %lu",(unsigned long)myArr.count);
 }
 
 
