@@ -176,8 +176,65 @@
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     theCell.tag = (int) indexPath;
+    int nnn = (int) indexPath.row;
+    NSString *str  = [myArrFree[nnn] valueForKey:@"title"];
+    NSLog(@"entered 00");
+    // Here check for null value for Dictionary
+    if (str == (NSString *)[NSNull null]) {
+        NSLog(@"entered 1");
+        //str = myArrFree[nnn][@"title"];
+        str = @"null";
+        
+    }else
+    {
+        NSLog(@"entered 2");
+        str = myArrFree[nnn][@"title"];
+        
+    }
+    NSLog(@"count  %lu  count i  %i",(unsigned long)myArrFree.count,nnn);
+    UILabel *lblTitle = [[UILabel alloc]initWithFrame:CGRectMake(5*WidthRatio, 5*HeightRatio, 200*WidthRatio, 40*HeightRatio)];//w200ht18
+    [lblTitle setText:str];
+    //NSLog(@"reason ----- ---- - - ->>>>> %@",stringForCell);
+    //[lblTask setFont:[UIFont systemFontOfSize:scHt/45]];//17
+    [lblTitle setFont:[UIFont systemFontOfSize:HeightRatio*18 weight:0.2]];
+    //[lblTask setAdjustsFontSizeToFitWidth:YES];
+    [lblTitle setTextColor:[UIColor colorWithRed:0.5 green:0.31 blue:1.0 alpha:1.0]];
+    [lblTitle setNumberOfLines:2];
+    //[lblTask setContentOffset:CGPointZero animated:YES];
+    [theCell addSubview:lblTitle];
+    
+    UIImage *image;
+    NSString *urlPath = myArrFree[nnn][@"imageHref"];
+    // Here check for null value for Dictionary
+    
+    if (urlPath == (NSString *)[NSNull null]) {
+        NSLog(@"entered 1");
+        //str = myArrFree[nnn][@"title"];
+        //urlPath = @"null";
+        urlPath = myArrFree[1][@"imageHref"];
+        NSURL *url = [NSURL URLWithString:urlPath];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        image = [UIImage imageWithData:data];
+    }else
+    {
+        NSLog(@"entered 2");
+        //urlPath = myArrFree[nnn][@"imageHref"];
+        
+        NSURL *url = [NSURL URLWithString:urlPath];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        image = [UIImage imageWithData:data];
+    }
     
 
+    
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(lblTitle.frame.origin.x+lblTitle.frame.size.width+5, (100*HeightRatio-50*WidthRatio)/2, 50*WidthRatio, 50*WidthRatio)];
+    [imageView setBackgroundColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.05]];
+    [theCell addSubview:imageView];
+    [imageView setImage:image];
+    
+    
+    
+    
     return theCell;
 }
 

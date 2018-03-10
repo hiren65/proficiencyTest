@@ -12,7 +12,7 @@
 @interface TableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate,UITextViewDelegate,UIGestureRecognizerDelegate>
 
 {
-    NSMutableArray *myArrFree;
+    NSArray *myArrFree;
 UITableViewCell * theCell;
 UITableView *myTableView;
     UIView *baseTableView;
