@@ -16,6 +16,7 @@
 		04DBCBC520510C4700639639 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DBCBC420510C4700639639 /* main.m */; };
 		04DBCBD02052B9A200639639 /* facts.json in Resources */ = {isa = PBXBuildFile; fileRef = 04DBCBCF2052B9A200639639 /* facts.json */; };
 		04FE495B2053AD1C006B5DC3 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FE495A2053AD1C006B5DC3 /* TableViewController.m */; };
+		04FE495D2055164E006B5DC3 /* noImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FE495C2055164E006B5DC3 /* noImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		04DBCBCF2052B9A200639639 /* facts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = facts.json; path = ../../../temp/facts.json; sourceTree = "<group>"; };
 		04FE49592053AD1C006B5DC3 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		04FE495A2053AD1C006B5DC3 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		04FE495C2055164E006B5DC3 /* noImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noImage.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				04FE49592053AD1C006B5DC3 /* TableViewController.h */,
 				04FE495A2053AD1C006B5DC3 /* TableViewController.m */,
+				04FE495C2055164E006B5DC3 /* noImage.png */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04DBCBC220510C4700639639 /* LaunchScreen.storyboard in Resources */,
+				04FE495D2055164E006B5DC3 /* noImage.png in Resources */,
 				04DBCBBF20510C4700639639 /* Assets.xcassets in Resources */,
 				04DBCBBA20510C4700639639 /* Main.storyboard in Resources */,
 				04DBCBD02052B9A200639639 /* facts.json in Resources */,

@@ -16,9 +16,12 @@
 
 #define WidthRatio scWi/414
 #define HeightRatio scHi/736
+
+
 @implementation TableViewController
 {
     UIView *mainView;
+    NSMutableArray *myArrPathCollection;NSMutableArray *imageArr;
 }
 @synthesize myArrFree;
 - (void)viewDidLoad {
@@ -29,9 +32,17 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    myArrPathCollection = [[NSMutableArray alloc]init];
+    imageArr = [[NSMutableArray alloc]init];
     self.view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, scWi, scHi)];
     [self allDevice];
+    
+    for (int i=0;i<myArrFree.count;i++) {
+        
+        [myArrPathCollection addObject:myArrFree[i][@"imageHref"]];
+        
+    }
+    NSLog(@"path collection     %@",myArrPathCollection[1]);
 }
 
 -(void)allDevice{
@@ -49,7 +60,7 @@
     
     
     btnRefreshDataForNotification = [[UIButton alloc]initWithFrame:CGRectMake((scWi-210*WidthRatio)/2, 35*HeightRatio, 210*WidthRatio, 35*HeightRatio)];
-    [btnRefreshDataForNotification setTitle:@"Refresh For Notification" forState:UIControlStateNormal];
+    [btnRefreshDataForNotification setTitle:@"Refresh" forState:UIControlStateNormal];
     [btnRefreshDataForNotification setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
     [btnRefreshDataForNotification addTarget:self action:@selector(btnBack:) forControlEvents:UIControlEventTouchUpInside];
     [btnRefreshDataForNotification.titleLabel setFont:[UIFont systemFontOfSize:18*HeightRatio]];
@@ -58,7 +69,7 @@
     [btnRefreshDataForNotification.layer setCornerRadius:4];
     [btnRefreshDataForNotification.layer setBackgroundColor:[UIColor grayColor].CGColor];
     [mainView addSubview:btnRefreshDataForNotification];
-    
+    /*
     btnPlus = [[UIButton alloc]initWithFrame:CGRectMake(scWi-45*WidthRatio, 35*HeightRatio, 35*HeightRatio, 35*HeightRatio)];
     [btnPlus setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
     [btnPlus.titleLabel setFont:[UIFont systemFontOfSize:21*HeightRatio]];
@@ -69,7 +80,7 @@
     [btnPlus.layer setBackgroundColor:[UIColor grayColor].CGColor];
     [btnPlus.layer setCornerRadius:4];
     [mainView addSubview:btnPlus];
-    
+    */
     
     [self createTableView];
     
@@ -112,9 +123,13 @@
     [myTableView setBounces:YES];
     [myTableView setDataSource:self];
     [myTableView setDelegate:self];
-    [myTableView setRowHeight:0.12*scHi];//80
+    [myTableView setRowHeight:0.38*scHi];//80
+    
+    
     [myTableView setScrollEnabled:YES];
     [myTableView setSeparatorColor:[UIColor redColor]];
+    //myTableView.rowHeight = UITableViewAutomaticDimension;
+    //myTableView.estimatedRowHeight = 44 ;
     UIVisualEffect *blurEffect;
     blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     [myTableView setSeparatorEffect:blurEffect];
@@ -203,36 +218,66 @@
     //[lblTask setContentOffset:CGPointZero animated:YES];
     [theCell addSubview:lblTitle];
     
-    UIImage *image;
-    NSString *urlPath = myArrFree[nnn][@"imageHref"];
+    
+    
+    UIImage *image = [[UIImage alloc]init];
+    NSString *urlPath = myArrPathCollection[nnn];
     // Here check for null value for Dictionary
     
     if (urlPath == (NSString *)[NSNull null]) {
         NSLog(@"entered 1");
         //str = myArrFree[nnn][@"title"];
         //urlPath = @"null";
-        urlPath = myArrFree[1][@"imageHref"];
-        NSURL *url = [NSURL URLWithString:urlPath];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        image = [UIImage imageWithData:data];
+        //urlPath = @"noImage.png";
+        //NSURL *url = [NSURL URLWithString:urlPath];
+        //NSData *data = [NSData dataWithContentsOfURL:url];
+        image = [UIImage imageNamed:@"noImage.png"];;
     }else
     {
         NSLog(@"entered 2");
-        //urlPath = myArrFree[nnn][@"imageHref"];
-        
+        urlPath = myArrFree[nnn][@"imageHref"];
+        urlPath = myArrPathCollection[nnn];
         NSURL *url = [NSURL URLWithString:urlPath];
         NSData *data = [NSData dataWithContentsOfURL:url];
         image = [UIImage imageWithData:data];
+        //image = imageArr[nnn];
     }
     
 
-    
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(lblTitle.frame.origin.x+lblTitle.frame.size.width+5, (100*HeightRatio-50*WidthRatio)/2, 50*WidthRatio, 50*WidthRatio)];
+    //UIImageView *imageView = [[UIImageView alloc]init];
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(lblTitle.frame.origin.x+lblTitle.frame.size.width+5, (100*HeightRatio-50*WidthRatio)/2, 150*WidthRatio, 150*WidthRatio)];
+    [imageView setAutoresizesSubviews:YES];
     [imageView setBackgroundColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.05]];
-    [theCell addSubview:imageView];
     [imageView setImage:image];
+    [theCell addSubview:imageView];
     
     
+    NSString *strDis  = [myArrFree[nnn] valueForKey:@"description"];
+    NSLog(@"entered 000");
+    // Here check for null value for Dictionary
+    if (strDis == (NSString *)[NSNull null]) {
+        NSLog(@"entered 11");
+        //str = myArrFree[nnn][@"title"];
+        strDis = @"null";
+        
+    }else
+    {
+        NSLog(@"entered 22");
+        strDis = myArrFree[nnn][@"description"];
+        
+    }
+    NSLog(@"count  %lu  count i  %i",(unsigned long)myArrFree.count,nnn);
+    NSLog(@"the cell height  %f and %f and lnl ht %f ",theCell.frame.size.height,scHi*0.32,40*HeightRatio);
+    UILabel *lblDis = [[UILabel alloc]initWithFrame:CGRectMake(5*WidthRatio, 235-55, 400*WidthRatio, 50*HeightRatio)];//w200ht18
+    [lblDis setText:strDis];
+    //NSLog(@"reason ----- ---- - - ->>>>> %@",stringForCell);
+    //[lblTask setFont:[UIFont systemFontOfSize:scHt/45]];//17
+    [lblDis setFont:[UIFont systemFontOfSize:HeightRatio*12 weight:0.2]];
+    //[lblTask setAdjustsFontSizeToFitWidth:YES];
+    [lblDis setTextColor:[UIColor colorWithRed:0.5 green:0.31 blue:1.0 alpha:1.0]];
+    [lblDis setNumberOfLines:3];
+    //[lblTask setContentOffset:CGPointZero animated:YES];
+    [theCell addSubview:lblDis];
     
     
     return theCell;
